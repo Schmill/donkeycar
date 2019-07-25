@@ -383,7 +383,8 @@ class ShowPredictionPlots(BaseCommand):
         tg = TubGroup(tub_paths)
 
         model_path = os.path.expanduser(model_path)
-        model = KerasLinear()
+        model = KerasLinear(roi_crop=(cfg.ROI_CROP_TOP, cfg.ROI_CROP_BOTTOM),
+                            a_weight=cfg.ANGLE_WEIGHT, t_weight=cfg.THROTTLE_WEIGHT)
         model.load(model_path)
 
         gen = tg.get_batch_gen(batch_size=len(tg.df), shuffle=False, df=tg.df)

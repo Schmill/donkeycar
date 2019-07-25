@@ -42,6 +42,12 @@ THROTTLE_REVERSE_PWM = 310
 #TRAINING
 BATCH_SIZE = 128
 TRAIN_TEST_SPLIT = 0.8
+# Training Weights (must total 1.0)
+ANGLE_WEIGHT = 0.5
+THROTTLE_WEIGHT = (1.0 - ANGLE_WEIGHT)
+# Region of Interest cropping (pixels to crop from images)
+ROI_CROP_TOP = 0
+ROI_CROP_BOTTOM = 0
 
 #JOYSTICK
 USE_JOYSTICK_AS_DEFAULT = False
